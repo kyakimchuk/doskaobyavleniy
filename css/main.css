@@ -1,13 +1,9 @@
-.headers {
-    position: relative;
-    text-align: center;
-    top: 100px;
+header {
+    padding: 12% 0 5% 0;
 }
-
 img {
     width: 150px;
 }
-
 .objavleniya {
     position: relative;
     top: 150px;
@@ -15,19 +11,15 @@ img {
     background: greenyellow;
     width: 900px;
 }
-
 .obyavlenie {
     background: lightgrey;
-    width: 900px;
-
+    width: 100%;
 }
-
 .link {
     position: relative;
     left: 0px;
     top: -100px;
 }
-
 .create_data {
     position: absolute;
 }
