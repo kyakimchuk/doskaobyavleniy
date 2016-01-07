@@ -10,42 +10,8 @@ $mas2 = $connection->query('SELECT title,cost,img_url,create_data FROM ads');
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <style>
-        .headers {
-            position: relative;
-            text-align: center;
-            top: 100px;
-        }
-
-        img {
-            width: 150px;
-        }
-
-        .objavleniya {
-            position: relative;
-            top: 150px;
-            left: 250px;
-            background: greenyellow;
-            width: 900px;
-        }
-
-        .obyavlenie {
-            background: lightgrey;
-            width: 900px;
-
-        }
-
-        .link {
-            position: relative;
-            left: 0px;
-            top: -100px;
-        }
-        .create_data {
-            position:absolute;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <div class="headers">
