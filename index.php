@@ -20,9 +20,9 @@ $mas2 = $connection->query('SELECT title,cost,img_url,create_data FROM ads');
     <div class="row">
         <div class="col-md-6 col-md-offset-5 ">
             <header>
-                <a href="registration.php">Register</a>
-                <a href="add_ad.php"> Add an advert</a>
-                <a href="">Go to profile</a>
+                <a href="registration.php"><span class="glyphicon glyphicon-plus"></span>Register</a>
+                <a href="add_ad.php"><span class="glyphicon glyphicon-pencil"></span>Add an advert</a>
+                <a href=""><span class="glyphicon glyphicon-user"></span>Go to profile</a>
             </header>
         </div>
     </div>

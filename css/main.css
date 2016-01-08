@@ -1,16 +1,7 @@
-header {
-    padding: 12% 0 5% 0;
-}
-img {
-    width: 150px;
-}
-.objavleniya {
-    position: relative;
-    top: 150px;
-    left: 250px;
-    background: greenyellow;
-    width: 900px;
-}
+header {padding: 12% 0 5% 0;}
+header a {margin-left: 3%;}
+header a span {margin-right: 1%;}
+img {width: 150px;}
 .obyavlenie {
     background: lightgrey;
     width: 100%;
