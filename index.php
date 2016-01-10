@@ -1,10 +1,10 @@
 <?php
 $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
-$mas2 = $connection->query('SELECT title,cost,img_url,create_data FROM ads');
+$mas2 = $connection->query('SELECT title,cost,img,create_data FROM ads');
 /*while ($row = $mas2->fetch()) {
     echo $row['title'] . "<br>";
     echo $row['cost'] . "<br>";
-    echo $row['img_url'] . "<br>";
+    echo $row['img'] . "<br>";
 }*/
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $mas2 = $connection->query('SELECT title,cost,img_url,create_data FROM ads');
             <header>
                 <a href="registration.php"><span class="glyphicon glyphicon-plus"></span>Register</a>
                 <a href="add_ad.php"><span class="glyphicon glyphicon-pencil"></span>Add an advert</a>
-                <a href=""><span class="glyphicon glyphicon-user"></span>Go to profile</a>
+                <a href="authorization.php"><span class="glyphicon glyphicon-user"></span>Go to profile</a>
             </header>
         </div>
     </div>
@@ -33,7 +33,7 @@ $mas2 = $connection->query('SELECT title,cost,img_url,create_data FROM ads');
             <?php
             while ($row = $mas2->fetch()) {
                 echo "<div class='obyavlenie'>";
-                $temp = $row['img_url'];
+                $temp = $row['img'];
                 echo "<img src='fotos/" . $temp . "'>";
                 echo "<a class='link' href=''>" . $row['title'] . "</a>";
                 echo "<div class='create_data'>" . $row['create_data'] . "</div>";

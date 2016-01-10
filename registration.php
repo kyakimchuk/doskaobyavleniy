@@ -1,5 +1,4 @@
 <?php
-$connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
 $login="";
 $pass="";
 $rpass="";
@@ -8,6 +7,7 @@ $surname="";
 $email="";
 $errors=array();
 $temp=0;
+$connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
 if (!empty($_POST) && isset($_POST["submitbutton"])){
     $login=$_POST['login'];
     $pass=$_POST['pass'];
@@ -15,7 +15,7 @@ if (!empty($_POST) && isset($_POST["submitbutton"])){
     $name=$_POST['name1'];
     $surname=$_POST['surname'];
     $email=$_POST['email'];
-    if (strlen($login)>1) {
+    if (strlen($login)>50) {
         $temp=1;
         $errors[] = "Login length must be no more than 50 symbols";
     }
@@ -27,7 +27,7 @@ if (!empty($_POST) && isset($_POST["submitbutton"])){
             $errors[] = "This login already exists";
         }
     }
-    if (strlen($pass)>1) {
+    if (strlen($pass)>50) {
         $temp=1;
         $errors[] = "Password length must be no more than 50 symbols";
     }
@@ -35,23 +35,24 @@ if (!empty($_POST) && isset($_POST["submitbutton"])){
         $temp=1;
         $errors[] = "Password mismatch";
     }
-	if (strlen($name)>1) {
+	if (strlen($name)>50) {
         $temp=1;
         $errors[] = "Name length must be no more than 50 symbols";
     }
-	if (strlen($surname)>1) {
+	if (strlen($surname)>50) {
         $temp=1;
         $errors[] = "Surname length must be no more than 50 symbols";
     }
-	if (strlen($email)>1) {
+	if (strlen($email)>50) {
         $temp=1;
         $errors[] = "Email length must be no more than 50 symbols";
     }
     if ($temp==0) {
+        $hashed_pass=md5($pass);
         $sql = "INSERT INTO memberlist ( login, pass, name, surname, email) VALUES (:login,:pass,:name,:surname,:email)";
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(':login', $login, PDO::PARAM_STR);
-        $stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
+        $stmt->bindParam(':pass', $hashed_pass, PDO::PARAM_STR);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':surname', $surname, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
