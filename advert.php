@@ -1,18 +1,15 @@
 <?php
 require_once "functions.php";
-session_start();
 $functs = new funcs();
-$user_id=$_SESSION["user_id"];
-$user_inf = $functs->get_user($user_id);
+$id_ad = $_GET['id'];
+$ad_inf = $functs->get_ad($id_ad);
 ?>
 <html>
 <head>
     <meta charset="utf-8">
 </head>
 <body>
-
-<!--
-<h3><?php echo $user_inf['title'];?></h3>
+<h3><?php echo $ad_inf['title'];?></h3>
 <h5>Type: <?php echo $ad_inf['type'];?></h5>
 <h5>Category: <?php echo $ad_inf['categ'];?></h5>
 <p><?php echo $ad_inf['create_data'];?></p>
@@ -20,7 +17,7 @@ $user_inf = $functs->get_user($user_id);
 <p><?php echo $ad_inf['email'];?></p>
 <img src='<?php echo "photos/".$ad_inf["img"];?>'>
 <p><?php echo $ad_inf['message'];?></p>
--->
+
 </body>
 </html>
 

@@ -1,11 +1,8 @@
 <?php
+require_once "functions.php";
+$functs = new funcs();
 $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
-$mas2 = $connection->query('SELECT title,cost,img,create_data FROM ads');
-/*while ($row = $mas2->fetch()) {
-    echo $row['title'] . "<br>";
-    echo $row['cost'] . "<br>";
-    echo $row['img'] . "<br>";
-}*/
+$mas2 = $connection->query('SELECT id_ad,title,type_id,category_id,cost,img,create_data FROM ads');
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,18 +27,25 @@ $mas2 = $connection->query('SELECT title,cost,img,create_data FROM ads');
         <div class="col-md-12">
             <div class="row"><h2>Ads</h2></div>
             <div class="row">
-            <?php
-            while ($row = $mas2->fetch()) {
-                echo "<div class='obyavlenie'>";
-                $temp = $row['img'];
-                echo "<img src='fotos/" . $temp . "'>";
-                echo "<a class='link' href=''>" . $row['title'] . "</a>";
-                echo "<div class='create_data'>" . $row['create_data'] . "</div>";
-                echo $row['cost'] . "$";
-                echo "</div>";
-                echo "<br/>";
-            }
-            ?>
+                <?php
+                while ($row = $mas2->fetch()) {
+                    $categ=$functs->get_categ($row['category_id']);
+                    $type=$functs->get_type($row['type_id']);
+                    echo "<div class='obyavlenie'>";
+                    $temp = $row['img'];
+                    echo "<img src='photos/" . $temp . "'>";
+                    echo "<a class='link' href='advert.php?id=" . $row['id_ad'] . "'>" . $row['title'] . "</a>";
+                    echo "<h5>Type: " . $type."</h5>";
+                    echo "<h5>Category: " . $categ."</h5>";
+                    echo "<div class='create_data'>" . $row['create_data'] . "</div>
+                ";
+                    echo $row['cost'] . "$";
+                    echo "
+            </div>
+            ";
+                    echo "<br/>";
+                }
+                ?>
             </div>
         </div>
     </div>

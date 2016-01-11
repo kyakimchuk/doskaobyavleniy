@@ -8,7 +8,7 @@ $email="";
 $errors=array();
 $temp=0;
 $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
-if (!empty($_POST) && isset($_POST["submitbutton"])){
+if (isset($_POST["submitbutton"])){
     $login=$_POST['login'];
     $pass=$_POST['pass'];
     $rpass=$_POST['rpass'];

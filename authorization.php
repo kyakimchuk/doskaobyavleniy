@@ -4,12 +4,12 @@ $functs = new funcs();
 $login = "";
 $pass = "";
 $error = "";
-if (!empty($_POST) && isset($_POST["submitbutton"])) {
+if (isset($_POST["submitbutton"])) {
     $login = $_POST['login'];
     $pass = $_POST['pass'];
 }
 if ($res = $functs->user_exist($login, $pass)) {
-    $functs->login($res, $login, $pass);
+    $functs->login($res);
     header("Location: profile.php");
 } else {
     echo "Login or password entered incorrect";
