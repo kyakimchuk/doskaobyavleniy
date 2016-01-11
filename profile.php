@@ -10,7 +10,6 @@ $user_inf = $functs->get_user($user_id);
     <meta charset="utf-8">
 </head>
 <body>
-
 <!--
 <h3><?php echo $user_inf['title'];?></h3>
 <h5>Type: <?php echo $ad_inf['type'];?></h5>

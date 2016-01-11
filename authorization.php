@@ -4,6 +4,7 @@ $functs = new funcs();
 $login = "";
 $pass = "";
 $error = "";
+
 if (isset($_POST["submitbutton"])) {
     $login = $_POST['login'];
     $pass = $_POST['pass'];

@@ -9,6 +9,7 @@ $errors = array();
 $temp = 0;
 $photo_name = "";
 $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
+
 $cresult = $connection->query("SELECT name,id_category FROM categories");
 $categories = $cresult->fetchAll();
 $ccount = count($categories);

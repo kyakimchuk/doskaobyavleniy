@@ -1,5 +1,4 @@
 <?php
-
 class funcs
 {
     function user_exist($login, $password)

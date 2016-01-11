@@ -4,6 +4,7 @@ $functs = new funcs();
 $id_ad = $_GET['id'];
 $ad_inf = $functs->get_ad($id_ad);
 ?>
+
 <html>
 <head>
     <meta charset="utf-8">

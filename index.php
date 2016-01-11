@@ -4,6 +4,7 @@ $functs = new funcs();
 $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
 $mas2 = $connection->query('SELECT id_ad,title,type_id,category_id,cost,img,create_data FROM ads');
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
