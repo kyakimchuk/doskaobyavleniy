@@ -16,18 +16,23 @@ $ads_count = count($user_ads);
 </head>
 <body>
 <div class="container">
+    <br>
     <div class="row">
+        <div class="col-md-4">
     <h2>My information</h2>
     <p>Login: <?php echo $user_inf['login']; ?></p>
     <p>Name: <?php echo $user_inf['name']; ?></p>
     <p>Surname: <?php echo $user_inf['surname']; ?></p>
     <p>Email: <?php echo $user_inf['email']; ?></p>
+        </div>
+        <div class="nav-profile">
     <a href="add_ad.php">Add an advert</a>
     <a href="index.php">Home</a>
     <a href="logout.php">Log out</a>
-    <h2>My ads</h2>
+        </div>
     </div>
     <div class="row">
+        <h2>My ads</h2>
         <?php
         for ($i = 0; $i < $ads_count; $i++) {
             $categ = $functs->get_categ($user_ads[$i]['category_id']);

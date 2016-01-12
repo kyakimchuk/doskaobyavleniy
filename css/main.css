@@ -29,8 +29,8 @@ header a span {margin-right: 1%;}
 }
 .create_data {
     position: relative;
-    left: -140px;
-    top: 15px;
+    left: 15px;
+
 }
 .cost {
     position: relative;
@@ -61,6 +61,10 @@ header a span {margin-right: 1%;}
 .centered{
     margin: 0 auto;
     float: none;
+}
+.nav-profile{
+    padding-top: 3%;
+    float: right;
 }
 .clear{
     clear: both;
