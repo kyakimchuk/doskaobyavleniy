@@ -158,7 +158,7 @@ endif;
     </div>
 </form>
 <?php if ($temp == 1) :
-    echo "<div class='alert alert-danger'><center><br/>";
+    echo "<div class='clear alert alert-danger'><center><br/>";
     echo "The data is entered incorrectly<br/><strong>Errors:</strong><br/>";
     for ($i = 0; $i < count($errors); $i++) {
         echo $errors[$i] . "<br/>";
@@ -167,7 +167,7 @@ endif;
 endif;
 ?>
 <?php if ($temp == 2) :
-    echo "<div class='alert alert-success'><center><br/>";
+    echo "<div class='clear alert alert-success'><center><br/>";
     echo "You have successfully added the advert!";
     echo "</center></div>";
 endif;
