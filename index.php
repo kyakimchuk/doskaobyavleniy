@@ -19,7 +19,7 @@ $mas2 = $connection->query('SELECT id_ad,title,type_id,category_id,cost,img,crea
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-7 col-md-offset-3">
+        <div class="col-md-8 col-md-offset-3">
             <div id='cssmenu'>
                 <ul>
                     <li><a href="/"><span class="glyphicon glyphicon-home"></span>Home</a></li>

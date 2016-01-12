@@ -71,11 +71,9 @@ if (isset($_POST["submitbutton"])) {
 <html>
 <head>
     <meta charset="utf-8">
-    <style>
-        form {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <?php if ($temp == 2) :
@@ -85,50 +83,79 @@ if (isset($_POST["submitbutton"])) {
     $email = "";
 endif;
 ?>
-<form method="post" enctype="multipart/form-data">
-    <br/>
 
-    <h2>Adding the advert</h2>
-    Title: <input type="text" name="title" value="<?php echo $title; ?>" required><br><br>
-    Description: <input type="text-area" name="description" value="<?php echo $description; ?>" required><br><br>
-    Type:
-    <select name="type">
-        <option value="0" selected>Choose a type</option>
-        <?php
-        for ($i = 0; $i < $tcount; $i++) {
-            $j = $i + 1;
-            echo "<option value='" . $j . "' " . ">" . $types[$i]["name"] . "</option>";
-        }
-        ?>
-    </select><br><br>
-    Category:
-    <select name="cat">
-        <option value="0" selected>Choose a category</option>
-        <?php
-        for ($i = 0; $i < $ccount; $i++) {
-            $j = $i + 1;
-            echo "<option value='" . $j . "' " . ">" . $categories[$i]["name"] . "</option>";
-        }
-        ?>
-    </select><br/><br/>
-    Cost: <input type="text" name="cost" value="<?php echo $cost; ?>" required><br><br>
-    Photo: <input type="file" name="adphoto"/><br/><br/>
-    Email: <input type="text" name="email" value="<?php echo $email; ?>" required><br><br>
-    <input type="submit" value="Publish" name="submitbutton"/>
+<form method="post" enctype="multipart/form-data">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="row titleForms">Adding the advert</div>
+        <div class="row">
+            <table class="tableForms">
+                <tr>
+                    <td>Title:</td>
+                    <td><input type="text" name="title" value="<?php echo $title; ?>" required></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text-area" name="description" value="<?php echo $description; ?>" required></td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td><select name="type">
+                            <option value="0" selected>Choose a type</option>
+                            <?php
+                            for ($i = 0; $i < $tcount; $i++) {
+                                $j = $i + 1;
+                                echo "<option value='" . $j . "' " . ">" . $types[$i]["name"] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td><select name="cat">
+                            <option value="0" selected>Choose a category</option>
+                            <?php
+                            for ($i = 0; $i < $ccount; $i++) {
+                                $j = $i + 1;
+                                echo "<option value='" . $j . "' " . ">" . $categories[$i]["name"] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cost:</td>
+                    <td><input type="text" name="cost" value="<?php echo $cost; ?>" required></td>
+                </tr>
+                <tr>
+                    <td>Photo:</td>
+                    <td><input type="file" name="adphoto"/></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" value="<?php echo $email; ?>" required></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-8 col-md-offset-2 buttonsForms">
+            <a class="col-xs-4 btn btn-danger" href="index.php">Back</a>
+            <input class="col-xs-4 btn btn-success" type="submit" value="Publish" name="submitbutton"/>
+        </div>
+    </div>
 </form>
 <?php if ($temp == 1) :
-    echo "<center><br/>";
-    echo "The data is entered incorrectly<br/>Errors:<br/>";
+    echo "<div class='alert alert-danger'><center><br/>";
+    echo "The data is entered incorrectly<br/><strong>Errors:</strong><br/>";
     for ($i = 0; $i < count($errors); $i++) {
         echo $errors[$i] . "<br/>";
     }
-    echo "</center>";
+    echo "</center></div>";
 endif;
 ?>
 <?php if ($temp == 2) :
-    echo "<center><br/>";
+    echo "<div class='alert alert-success'><center><br/>";
     echo "You have successfully added the advert!";
-    echo "</center>";
+    echo "</center></div>";
 endif;
 ?>
 </body>
