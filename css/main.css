@@ -69,3 +69,9 @@ header a span {margin-right: 1%;}
 .clear{
     clear: both;
 }
+.imageAdvert{
+    top:0;
+    width:400px;
+    float: right;
+    margin: 7px 0 7px 50px;
+}
