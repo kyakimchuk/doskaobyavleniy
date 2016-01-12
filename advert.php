@@ -8,6 +8,9 @@ $ad_inf = $functs->get_ad($id_ad);
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <a href="index.php">Home</a>
