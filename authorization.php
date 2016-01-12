@@ -11,9 +11,9 @@ if (isset($_POST["submitbutton"])) {
     if ($res = $functs->user_exist($login, $pass)) {
         $functs->login($res);
         header("Location: profile.php");
-    } else {
-        echo "<br><div class='clear alert alert-danger'><center>Login or password entered incorrect</center></div>";
-    }}
+    } else
+        $error = 1;
+}
 ?>
 <html>
 <head>
@@ -43,8 +43,11 @@ if (isset($_POST["submitbutton"])) {
             </div>
         </div>
     </div>
-
+    <?php
+    if ($error == 1) {
+        echo "<br><div class='clear alert alert-danger'><center>Login or password entered incorrect</center></div>";
+    }
+    ?>
 </form>
-
 </body>
 </html>
