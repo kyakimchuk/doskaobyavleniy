@@ -113,23 +113,24 @@ endif;
             <a href="index.php" class="btn btn-danger">Home</a>
             <input class="btn btn-success" type="submit" value="Register" name="submitbutton"/>
         </div>
-
     </div>
+    <br>
+    <?php if ($temp == 1) :
+        echo "<div class='clear alert alert-danger'><center><br/>";
+        echo "The data is entered incorrectly<br/><strong>Errors:</strong><br/>";
+        for ($i = 0; $i < count($errors); $i++) {
+            echo $errors[$i] . "<br/>";
+        }
+        echo "</center></div>";
+    endif;
+    ?>
+    <?php if ($temp == 2) :
+        echo "<div class='clear alert alert-success'><center><br/>";
+        echo "You have successfully registered!";
+        echo "</center></div>";
+    endif;
+    ?>
 </form>
-<?php if ($temp == 1) :
-    echo "<div class='alert alert-danger'><center><br/>";
-    echo "The data is entered incorrectly<br/><strong>Errors:</strong><br/>";
-    for ($i = 0; $i < count($errors); $i++) {
-        echo $errors[$i] . "<br/>";
-    }
-    echo "</center></div>";
-endif;
-?>
-<?php if ($temp == 2) :
-    echo "<div class='alert alert-success'><center><br/>";
-    echo "You have successfully registered!";
-    echo "</center></div>";
-endif;
-?>
+
 </body>
 </html>
