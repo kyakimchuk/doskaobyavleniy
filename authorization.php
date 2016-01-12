@@ -1,3 +1,20 @@
+<?php
+require_once 'functions.php';
+$functs = new funcs();
+$login = "";
+$pass = "";
+$error = "";
+if (isset($_POST["submitbutton"])) {
+    $login = $_POST['login'];
+    $pass = $_POST['pass'];
+
+    if ($res = $functs->user_exist($login, $pass)) {
+        $functs->login($res);
+        header("Location: profile.php");
+    } else {
+        echo "<br><div class='clear alert alert-danger'><center>Login or password entered incorrect</center></div>";
+    }}
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -26,23 +43,7 @@
             </div>
         </div>
     </div>
-    <?php
-    require_once 'functions.php';
-    $functs = new funcs();
-    $login = "";
-    $pass = "";
-    $error = "";
-    if (isset($_POST["submitbutton"])) {
-        $login = $_POST['login'];
-        $pass = $_POST['pass'];
 
-        if ($res = $functs->user_exist($login, $pass)) {
-            $functs->login($res);
-            header("Location: profile.php");
-        } else {
-            echo "<br><div class='clear alert alert-danger'><center>Login or password entered incorrect</center></div>";
-        }}
-    ?>
 </form>
 
 </body>
