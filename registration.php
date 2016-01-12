@@ -110,7 +110,7 @@ endif;
             </table>
         </div>
         <div class="col-md-8 col-md-offset-3 buttonsForms">
-            <a href="authorization.php" class="btn btn-danger">Login</a>
+            <a href="index.php" class="btn btn-danger">Home</a>
             <input class="btn btn-success" type="submit" value="Register" name="submitbutton"/>
         </div>
 

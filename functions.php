@@ -19,7 +19,12 @@ class funcs
         session_start();
         $_SESSION["user_id"] = $user_id;
     }
-
+    function logout()
+    {
+        session_start();
+        unset($_SESSION['user_id']);
+        session_destroy();
+    }
     function get_ad($id_ad)
     {
         $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
@@ -32,14 +37,24 @@ class funcs
         $result["type"] = $type;
         return $result;
     }
-
     function get_user($id_user)
     {
         $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
         $result = $connection->query("SELECT * FROM memberlist where id_member='$id_user'")->fetch();
         return $result;
     }
-
+    function get_user_login($id_user)
+    {
+        $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
+        $result = $connection->query("SELECT login FROM memberlist where id_member='$id_user'")->fetchColumn();
+        return $result;
+    }
+    function get_user_email($id_user)
+    {
+        $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
+        $result = $connection->query("SELECT email FROM memberlist where id_member='$id_user'")->fetchColumn();
+        return $result;
+    }
     function get_type($id_type)
     {
         $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');

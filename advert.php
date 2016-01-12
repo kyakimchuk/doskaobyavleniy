@@ -10,6 +10,7 @@ $ad_inf = $functs->get_ad($id_ad);
     <meta charset="utf-8">
 </head>
 <body>
+<a href="index.php">Home</a>
 <h3><?php echo $ad_inf['title'];?></h3>
 <h5>Type: <?php echo $ad_inf['type'];?></h5>
 <h5>Category: <?php echo $ad_inf['categ'];?></h5>

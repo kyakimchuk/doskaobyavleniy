@@ -1,10 +1,16 @@
 <?php
 require_once "functions.php";
+session_start();
+$user_id = "";
+$user_login = "";
 $functs = new funcs();
+if (!empty($_SESSION['user_id'])) {
+    $user_id = $_SESSION["user_id"];
+    $user_login = $functs->get_user_login($user_id);
+}
 $connection = new PDO('mysql:host=localhost; port=65535; dbname=doskaobyavl', 'root', '');
 $mas2 = $connection->query('SELECT id_ad,title,type_id,category_id,cost,img,create_data FROM ads');
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +32,15 @@ $mas2 = $connection->query('SELECT id_ad,title,type_id,category_id,cost,img,crea
                     <li><a href="registration.php"><span class="glyphicon glyphicon-plus"></span>Register</a></li>
                     <li class='active'><a href="add_ad.php"><span class="glyphicon glyphicon-pencil"></span>Add an
                             advert</a></li>
-                    <li class='last'><a href="authorization.php"><span class="glyphicon glyphicon-user"></span>Go to
-                            profile</a></li>
+                    <?php if ($user_login == "") {
+                        $profile_header = "Go to profile";
+                        $profile_link = "authorization.php";
+                    } else {
+                        $profile_header = $user_login;
+                        $profile_link = "profile.php";
+                    }
+                    ?>
+                    <li class='last'><a href="<?php echo $profile_link;?>"><span class="glyphicon glyphicon-user"></span><?php echo $profile_header;?></a></li>
                 </ul>
             </div>
         </div>
@@ -38,18 +51,18 @@ $mas2 = $connection->query('SELECT id_ad,title,type_id,category_id,cost,img,crea
             <div class="row">
                 <?php
                 while ($row = $mas2->fetch()) {
-                    $categ = $functs->get_categ($row['category_id']);
-                    $type = $functs->get_type($row['type_id']);
-                    echo "<div class='obyavlenie'>";
-                    $temp = $row['img'];
-                    echo "<div class='imgPreview'><img src='photos/" . $temp . "'></div>";
-                    echo "<span class='link'><a href='advert.php?id=" . $row['id_ad'] . "'>" . $row['title'] . "</a></span>";
-                    echo "<div class='adsType' id='type'>Type: " . $type . "</div>";
-                    echo "<div class='adsCategory' id='category'>Category: " . $categ . "</div>";
-                    echo "<div class='create_data'>" . $row['create_data'] . "</div>";
-                    echo "<div class='cost'>" . $row['cost'] . "$</div>";
-                    echo "</div>";
-                    echo "<br/>";
+                $categ = $functs->get_categ($row['category_id']);
+                $type = $functs->get_type($row['type_id']);
+                echo "<div class='obyavlenie'>";
+                $temp = $row['img'];
+                echo "<div class='imgPreview'><img src='photos/" . $temp . "'></div>";
+                echo "<span class='link'><a href='advert.php?id=" . $row['id_ad'] . "'>" . $row['title'] . "</a></span>";
+                echo "<div class='adsType' id='type'>Type: " . $type . "</div>";
+                echo "<div class='adsCategory' id='category'>Category: " . $categ . "</div>";
+                echo "<div class='create_data'>" . $row['create_data'] . "</div>";
+                echo "<div class='cost'>" . $row['cost'] . "$</div>";
+                echo "</div>";
+                echo "<br/>";
                 }
                 ?>
             </div>

@@ -7,13 +7,13 @@ $error = "";
 if (isset($_POST["submitbutton"])) {
     $login = $_POST['login'];
     $pass = $_POST['pass'];
-}
+
 if ($res = $functs->user_exist($login, $pass)) {
     $functs->login($res);
     header("Location: profile.php");
 } else {
     echo "Login or password entered incorrect";
-}
+}}
 ?>
 <html>
 <head>
@@ -38,7 +38,7 @@ if ($res = $functs->user_exist($login, $pass)) {
                 </tr>
             </table>
             <div class="buttonsForms">
-                <a class="col-xs-4 btn btn-danger" href="registration.php">Registration</a>
+                <a class="col-xs-4 btn btn-danger" href="index.php">Home</a>
                 <input class="col-xs-4 btn btn-success" type="submit" value="Login" name="submitbutton"/>
             </div>
         </div>

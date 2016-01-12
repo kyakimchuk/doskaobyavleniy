@@ -1,4 +1,14 @@
 <?php
+require_once 'functions.php';
+session_start();
+$functs = new funcs();
+$user_id="";
+$user_email="";
+if (!empty($_SESSION['user_id'])){
+    $user_id=$_SESSION['user_id'];
+    $user_email = $functs->get_user_email($user_id);
+
+}
 $title = "";
 $description = "";
 $type = "";
@@ -133,12 +143,16 @@ endif;
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="text" name="email" value="<?php echo $email; ?>" required></td>
+                    <?php if ($user_email!="")
+                        echo "<td><input type='text' name='email' value='".$user_email."' readonly></td>";
+                    else
+                        echo "<td><input type='text' name='email' value='".$email."' required></td>";
+                    ?>
                 </tr>
             </table>
         </div>
         <div class="col-md-8 col-md-offset-2 buttonsForms">
-            <a class="col-xs-4 btn btn-danger" href="index.php">Back</a>
+            <a class="col-xs-4 btn btn-danger" href="index.php">Home</a>
             <input class="col-xs-4 btn btn-success" type="submit" value="Publish" name="submitbutton"/>
         </div>
     </div>
