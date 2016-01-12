@@ -48,6 +48,7 @@ if (isset($_POST["submitbutton"])) {
         echo "<br><div class='clear alert alert-danger'><center>Login or password entered incorrect</center></div>";
     }
     ?>
+
 </form>
 </body>
 </html>
